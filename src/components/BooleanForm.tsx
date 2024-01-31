@@ -14,7 +14,6 @@ const validationSchema = yup.object().shape({
 type BooleanFormValues = {
   answer: string;
 };
-//all components should be in one style (function)
 //absolute
 
 export function BooleanForm({

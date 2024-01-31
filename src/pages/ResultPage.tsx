@@ -1,16 +1,16 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../state/hooks";
 import { RootState } from "../state/store";
 import { useNavigate } from "react-router-dom";
 import { restartQuiz } from "../state/reducers/quizQuestionsReducer";
 import { Button } from "../components";
 
 export function ResultPage(): JSX.Element {
-  const { correct, wrong, questions } = useSelector(
+  const { correct, wrong, questions } = useAppSelector(
     (state: RootState) => state.quizQuestions
   );
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function handleRestartQuiz() {
     dispatch(restartQuiz());

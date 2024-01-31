@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../state/hooks";
 
 import { RootState } from "../state/store";
 import { fetchQuestions } from "../state/actions/quizQuestionsActions";
 import { Question } from "../components/Question";
 
 export function QuizQuestionsPage(): JSX.Element {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {
     correct,
@@ -17,7 +17,7 @@ export function QuizQuestionsPage(): JSX.Element {
     remainingQuestions,
     loading,
     error,
-  } = useSelector((state: RootState) => state.quizQuestions);
+  } = useAppSelector((state: RootState) => state.quizQuestions);
 
   useEffect(() => {
     dispatch(fetchQuestions());

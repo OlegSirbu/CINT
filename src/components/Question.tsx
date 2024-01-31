@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../state/hooks";
 import he from "he";
 
 import {
@@ -22,7 +22,7 @@ export function Question({
   correctAnswer,
   incorrectAnswers,
 }: IQuestion): JSX.Element {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const answers = useMemo(
     () => randomizeQuestions(correctAnswer, incorrectAnswers),

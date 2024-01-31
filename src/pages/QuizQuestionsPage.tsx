@@ -27,11 +27,13 @@ export function QuizQuestionsPage(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    const noRemainingQuestions = remainingQuestions.length === 0;
-    const allQuestionsAnswered =
-      correct + wrong === questions.length && questions.length > 0;
+    // Check if there are no remaining questions
+    const hasNoRemainingQuestions = remainingQuestions.length === 0;
+    // Check if all questions have been answered and there is at least one question
+    const hasAllQuestionsAnswered =
+      questions.length > 0 && correct + wrong === questions.length;
 
-    if (noRemainingQuestions && allQuestionsAnswered) {
+    if (hasNoRemainingQuestions && hasAllQuestionsAnswered) {
       navigate("/results");
     }
   }, [remainingQuestions, correct, wrong, questions]);

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { QuizQuestionsState } from "../../types";
 
 const initialState: QuizQuestionsState = {
   loading: true,

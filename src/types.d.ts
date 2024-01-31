@@ -4,7 +4,7 @@ interface IQuestion {
   difficulty: string;
   question: string;
   correctAnswer: string;
-  incorrectAnswers: Array<string>;
+  incorrectAnswers: string[];
 }
 
 interface QuizQuestionsState {

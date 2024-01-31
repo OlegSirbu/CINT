@@ -2,13 +2,9 @@ import React, { useMemo } from "react";
 import { useAppDispatch } from "../state/hooks";
 import he from "he";
 
-import {
-  submitQuestion,
-  getNextQuestion,
-} from "../state/reducers/quizQuestionsReducer";
-
-import { randomizeQuestions } from "../utils/randomizeQuestions";
-import { TextForm, BooleanForm, MultipleForm } from ".";
+import { randomizeQuestions } from "utils/randomizeQuestions";
+import { submitQuestion, getNextQuestion } from "state";
+import { TextForm, BooleanForm, MultipleForm } from "components";
 
 enum QuestionType {
   Text = "text",

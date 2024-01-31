@@ -2,10 +2,7 @@ import React from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-
-import { InputRadio } from "./InputRadio";
-import { ErrorMessage } from "./ErrorMessage";
-import { Button } from "../components";
+import { InputRadio, ErrorMessage, Button } from "components";
 
 const validationSchema = yup.object().shape({
   answer: yup.string().required("Please select one option"),
@@ -14,7 +11,6 @@ const validationSchema = yup.object().shape({
 type BooleanFormValues = {
   answer: string;
 };
-//absolute
 
 export function BooleanForm({
   correctAnswer,

@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../state/hooks";
+import {
+  RootState,
+  useAppDispatch,
+  useAppSelector,
+  fetchQuestions,
+} from "state";
 
-import { RootState } from "../state/store";
-import { fetchQuestions } from "../state/actions/quizQuestionsActions";
-import { Question } from "../components/Question";
+import { Question } from "components";
 
 export function QuizQuestionsPage(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -23,20 +26,20 @@ export function QuizQuestionsPage(): JSX.Element {
     dispatch(fetchQuestions());
   }, []);
 
-  const noRemainingQuestions = remainingQuestions.length === 0;
-  const allQuestionsAnswered = correct + wrong === questions.length;
+  useEffect(() => {
+    const noRemainingQuestions = remainingQuestions.length === 0;
+    const allQuestionsAnswered = correct + wrong === questions.length;
 
-  if (noRemainingQuestions && allQuestionsAnswered) {
-    navigate("/results");
-  }
-
-  const isPageReady = loading === false && error === null;
+    if (noRemainingQuestions && allQuestionsAnswered) {
+      navigate("/results");
+    }
+  }, [remainingQuestions, correct, wrong, questions]);
 
   return (
     <div className="container mx-auto p-4">
       {loading && <p>Loading...</p>}
       {error && <p>Error</p>}
-      {isPageReady && <Question {...currentQuestion} />}
+      {currentQuestion && <Question {...(currentQuestion as IQuestion)} />}
     </div>
   );
 }

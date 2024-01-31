@@ -3,9 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 
-import { CheckboxGroup } from "./CheckboxGroup";
-import { ErrorMessage } from "./ErrorMessage";
-import { Button } from "../components";
+import { CheckboxGroup, ErrorMessage, Button } from "components";
 
 interface MultipleFormValues {
   answers: string[];

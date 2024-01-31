@@ -6,3 +6,4 @@ export * from "./InputRadio";
 export * from "./InputText";
 export * from "./ErrorMessage";
 export * from "./Button";
+export * from "./Question";

@@ -3,9 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 
-import { InputText } from "./InputText";
-import { ErrorMessage } from "./ErrorMessage";
-import { Button } from "../components";
+import { InputText, ErrorMessage, Button } from "components";
 
 const validationSchema = yup.object().shape({
   field: yup.string().required("This field is required"),

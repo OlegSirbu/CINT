@@ -28,7 +28,8 @@ export function QuizQuestionsPage(): JSX.Element {
 
   useEffect(() => {
     const noRemainingQuestions = remainingQuestions.length === 0;
-    const allQuestionsAnswered = correct + wrong === questions.length;
+    const allQuestionsAnswered =
+      correct + wrong === questions.length && questions.length > 0;
 
     if (noRemainingQuestions && allQuestionsAnswered) {
       navigate("/results");

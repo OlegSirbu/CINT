@@ -1,0 +1,45 @@
+{
+  "response_code":0,
+  "results":[
+    {
+      "category":"Animals",
+      "type":"text",
+      "difficulty":"medium",
+      "question":"What color\/colour is a polar bear&#039;s skin?",
+      "correct_answer":"Black"
+    },
+     {
+      "category":"Science & Nature",
+      "type":"boolean",
+      "difficulty":"easy",
+      "question":"Igneous rocks are formed by excessive heat and pressure.",
+      "correct_answer":"False",
+      "incorrect_answers":[
+        "True"
+      ]
+    },
+    {
+      "category":"Entertainment: Video Games",
+      "type":"multiple",
+      "difficulty":"easy",
+      "question":"Which game did &quot;Sonic The Hedgehog&quot; make his first appearance in?",
+      "correct_answer":"Rad Mobile",
+      "incorrect_answers":[
+        "Sonic The Hedgehog",
+        "Super Mario 64",
+        "Mega Man"
+      ]
+    },
+    {
+      "category":"General Knowledge",
+      "type":"multiple",
+      "difficulty":"easy",
+      "question":"Which company did Valve cooperate with in the creation of the Vive? and Singaporean-American multinational technology company that designs, develops, and sells consumer electronics, financial services, and gaming hardware",
+      "correct_answer":["HTC", "Occulos"],
+      "incorrect_answers":[
+        "Google",
+        "Razer"
+      ]
+    }
+  ]
+}

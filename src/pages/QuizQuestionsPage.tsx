@@ -6,7 +6,7 @@ import {
   useAppSelector,
   fetchQuestions,
 } from "src/state";
-import { QuestionType } from "src/types";
+import { QuestionType } from "src/constants";
 import { Question } from "src/components";
 
 export const QuizQuestionsPage: React.FC = () => {
@@ -34,7 +34,6 @@ export const QuizQuestionsPage: React.FC = () => {
     // Check if all questions have been answered and there is at least one question
     const hasAllQuestionsAnswered =
       questions.length > 0 && correct + wrong === questions.length;
-    debugger;
     if (hasNoRemainingQuestions && hasAllQuestionsAnswered) {
       navigate("/results");
     }

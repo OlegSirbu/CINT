@@ -5,12 +5,8 @@ import he from "he";
 import randomizeQuestions from "src/utils/randomizeQuestions";
 import { submitQuestion, getNextQuestion } from "src/state";
 import { TextForm, BooleanForm, MultipleForm } from "src/components/forms";
+import { QuestionType } from "src/constants";
 
-enum QuestionType {
-  Text = "text",
-  Boolean = "boolean",
-  Multiple = "multiple",
-}
 interface QuestionProps {
   type: QuestionType;
   question: string;

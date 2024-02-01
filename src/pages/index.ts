@@ -1,2 +1,2 @@
-export * from "./QuizQuestionsPage";
-export * from "./ResultPage";
+export * from "src/pages/QuizQuestionsPage";
+export * from "src/pages/ResultPage";

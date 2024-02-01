@@ -5,11 +5,11 @@ import {
   useAppDispatch,
   useAppSelector,
   fetchQuestions,
-} from "state";
+} from "src/state";
+import { QuestionType } from "src/types";
+import { Question } from "src/components";
 
-import { Question } from "components";
-
-export function QuizQuestionsPage(): JSX.Element {
+export const QuizQuestionsPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {
@@ -23,7 +23,9 @@ export function QuizQuestionsPage(): JSX.Element {
   } = useAppSelector((state: RootState) => state.quizQuestions);
 
   useEffect(() => {
-    dispatch(fetchQuestions());
+    if (questions.length === 0) {
+      dispatch(fetchQuestions());
+    }
   }, []);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export function QuizQuestionsPage(): JSX.Element {
     // Check if all questions have been answered and there is at least one question
     const hasAllQuestionsAnswered =
       questions.length > 0 && correct + wrong === questions.length;
-
+    debugger;
     if (hasNoRemainingQuestions && hasAllQuestionsAnswered) {
       navigate("/results");
     }
@@ -42,7 +44,14 @@ export function QuizQuestionsPage(): JSX.Element {
     <div className="container mx-auto p-4">
       {loading && <p>Loading...</p>}
       {error && <p>Error</p>}
-      {currentQuestion && <Question {...(currentQuestion as IQuestion)} />}
+      {currentQuestion && (
+        <Question
+          type={currentQuestion.type as QuestionType}
+          question={currentQuestion.question}
+          correctAnswer={currentQuestion.correctAnswer}
+          incorrectAnswers={currentQuestion.incorrectAnswers}
+        />
+      )}
     </div>
   );
-}
+};

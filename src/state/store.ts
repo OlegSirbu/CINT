@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import quizQuestionsReducer from "../state/reducers/quizQuestionsReducer";
+import quizQuestionsReducer from "src/state/reducers/quizQuestionsReducer";
 
 export const store = configureStore({
   reducer: {

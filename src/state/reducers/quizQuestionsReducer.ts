@@ -1,19 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IQuestion, IQuizQuestionsState } from "src/types";
 
-const initialState: QuizQuestionsState = {
+const initialState: IQuizQuestionsState = {
   loading: true,
   error: null,
   correct: 0,
   wrong: 0,
-  questions: [],
-  questionIndex: 0,
+  questions: [] as IQuestion[],
   currentQuestion: null,
-  remainingQuestions: [],
+  remainingQuestions: [] as IQuestion[],
 };
 
-function selectRandomQuestion(state: QuizQuestionsState) {
+function selectRandomQuestion(state: IQuizQuestionsState) {
   const emptyRemainingQuestions = state.remainingQuestions.length === 0;
-  const emptyAnswers = !state.correct || !state.wrong;
+  const emptyAnswers = state.correct === 0 || state.wrong === 0;
 
   if (emptyRemainingQuestions && emptyAnswers) {
     state.remainingQuestions = [...state.questions]; // Reset remainingQuestions when all questions have been used
@@ -25,6 +25,7 @@ function selectRandomQuestion(state: QuizQuestionsState) {
   state.remainingQuestions.splice(randomIndex, 1); // Remove the question from the array
   return nextQuestion;
 }
+
 export const quizQuestionsSlice = createSlice({
   name: "quizQuestions",
   initialState,
@@ -33,19 +34,19 @@ export const quizQuestionsSlice = createSlice({
       state.correct = 0;
       state.wrong = 0;
       state.error = null;
+      state.remainingQuestions = [];
       state.currentQuestion = selectRandomQuestion(state);
     },
-    fetchQuestionsSuccess: (state, action) => {
+    fetchQuestionsSuccess: (state, action: PayloadAction<IQuestion[]>) => {
       state.questions = action.payload;
-      state.remainingQuestions = [...action.payload]; // Copy the questions to remainingQuestions
-      state.currentQuestion = selectRandomQuestion(state); // Get a random question
+      state.remainingQuestions = [...action.payload];
+      state.currentQuestion = selectRandomQuestion(state);
       state.loading = false;
     },
     getNextQuestion: (state) => {
       state.currentQuestion = selectRandomQuestion(state);
     },
     submitQuestion: (state, action) => {
-      state.questionIndex += 1;
       if (action.payload) {
         state.correct += 1;
       } else {

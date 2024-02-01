@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ResultPage, QuizQuestionsPage } from "pages";
 
-function App(): JSX.Element {
+import { QuizQuestionsPage, ResultPage } from "src/pages";
+
+const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
@@ -13,6 +14,6 @@ function App(): JSX.Element {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

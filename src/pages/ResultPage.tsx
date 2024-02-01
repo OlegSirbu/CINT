@@ -1,9 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector, RootState, restartQuiz } from "state";
-import { Button } from "components";
+import {
+  useAppDispatch,
+  useAppSelector,
+  RootState,
+  restartQuiz,
+} from "src/state";
+import { Button } from "src/components/elements";
 
-export function ResultPage(): JSX.Element {
+export const ResultPage: React.FC = () => {
   const { correct, wrong, questions } = useAppSelector(
     (state: RootState) => state.quizQuestions
   );
@@ -15,10 +20,10 @@ export function ResultPage(): JSX.Element {
     navigate("/");
   }
 
-  const PERCENT = 100;
+  const PERCENTAGE = 100;
   const totalQuestions = questions.length;
   const answeredQuestions = correct + wrong;
-  const score = (correct / totalQuestions) * PERCENT;
+  const score = (correct / totalQuestions) * PERCENTAGE;
 
   return (
     <div className="container mx-auto p-4">
@@ -40,4 +45,4 @@ export function ResultPage(): JSX.Element {
       <Button onClick={handleRestartQuiz}>Restart Quiz</Button>
     </div>
   );
-}
+};

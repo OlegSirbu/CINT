@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IQuestion, IQuizQuestionsState } from "src/types";
 
 const initialState: IQuizQuestionsState = {
   loading: true,

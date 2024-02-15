@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { QuizQuestionsPage, ResultPage } from "src/pages";
 
-const App: React.FC = () => {
+const App = (): React.ReactNode => {
   return (
-    <div className="App">
+    <div>
       <Router>
         <Routes>
           <Route path="/" element={<QuizQuestionsPage />} />

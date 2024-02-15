@@ -8,7 +8,7 @@ import {
 } from "src/state";
 import { Button } from "src/components/elements";
 
-export const ResultPage: React.FC = () => {
+export const ResultPage = (): React.ReactNode => {
   const { correct, wrong, questions } = useAppSelector(
     (state: RootState) => state.quizQuestions
   );

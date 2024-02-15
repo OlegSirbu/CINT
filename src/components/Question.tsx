@@ -14,12 +14,12 @@ interface QuestionProps {
   incorrectAnswers: string[];
 }
 
-export const Question: React.FC<QuestionProps> = ({
+export const Question = ({
   type,
   question,
   correctAnswer,
   incorrectAnswers,
-}) => {
+}: QuestionProps): React.ReactNode => {
   const dispatch = useAppDispatch();
   const handleSubmit = async (isCorrect: boolean) => {
     await dispatch(submitQuestion(isCorrect));

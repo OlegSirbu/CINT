@@ -22,10 +22,10 @@ type BooleanFormProps = {
   onSubmitAnswer: (isCorrect: boolean) => void;
 };
 
-export const BooleanForm: React.FC<BooleanFormProps> = ({
+export const BooleanForm = ({
   correctAnswer,
   onSubmitAnswer,
-}) => {
+}: BooleanFormProps): React.ReactNode => {
   const {
     register,
     handleSubmit,

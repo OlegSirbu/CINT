@@ -18,11 +18,11 @@ const validationSchema = yup.object().shape({
   answers: yup.array().min(1).required("Select as minimum one option"),
 });
 
-export const MultipleForm: React.FC<MultipleFormProps> = ({
+export const MultipleForm = ({
   correctAnswer,
   options,
   onSubmitAnswer,
-}) => {
+}: MultipleFormProps): React.ReactNode => {
   const {
     register,
     handleSubmit,

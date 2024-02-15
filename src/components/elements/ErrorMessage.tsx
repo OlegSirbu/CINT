@@ -4,7 +4,9 @@ interface ErrorMessageProps {
   message: string | null;
 }
 
-export const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => {
+export const ErrorMessage = ({
+  message,
+}: ErrorMessageProps): React.ReactNode => {
   if (!message) {
     return null;
   }

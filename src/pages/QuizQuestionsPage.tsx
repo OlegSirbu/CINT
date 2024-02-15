@@ -9,7 +9,7 @@ import {
 import { QuestionType } from "src/constants";
 import { Question } from "src/components";
 
-export const QuizQuestionsPage: React.FC = () => {
+export const QuizQuestionsPage = (): React.ReactNode => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const {

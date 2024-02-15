@@ -17,10 +17,10 @@ const validationSchema = yup.object().shape({
   field: yup.string().required("This field is required"),
 });
 
-export const TextForm: React.FC<TextFormProps> = ({
+export const TextForm = ({
   correctAnswer,
   onSubmitAnswer,
-}) => {
+}: TextFormProps): React.ReactNode => {
   const {
     register,
     handleSubmit,

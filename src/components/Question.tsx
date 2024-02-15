@@ -32,29 +32,18 @@ export const Question: React.FC<QuestionProps> = ({
   );
 
   const renderQuestion = (): React.ReactNode | null => {
+    const commonProps = {
+      correctAnswer,
+      onSubmitAnswer: handleSubmit,
+    };
+
     switch (type) {
       case QuestionType.Text:
-        return (
-          <TextForm
-            correctAnswer={correctAnswer}
-            onSubmitAnswer={handleSubmit}
-          />
-        );
+        return <TextForm {...commonProps} />;
       case QuestionType.Boolean:
-        return (
-          <BooleanForm
-            correctAnswer={correctAnswer}
-            onSubmitAnswer={handleSubmit}
-          />
-        );
+        return <BooleanForm {...commonProps} />;
       case QuestionType.Multiple:
-        return (
-          <MultipleForm
-            correctAnswer={correctAnswer}
-            options={answers}
-            onSubmitAnswer={handleSubmit}
-          />
-        );
+        return <MultipleForm {...commonProps} options={answers} />;
       default:
         return null;
     }

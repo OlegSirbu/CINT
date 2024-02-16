@@ -3,3 +3,4 @@ export enum QuestionType {
   Boolean = "boolean",
   Multiple = "multiple",
 }
+export const PERCENTAGE = 100;

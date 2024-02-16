@@ -7,6 +7,7 @@ import {
   restartQuiz,
 } from "src/state";
 import { Button } from "src/components/elements";
+import { PERCENTAGE } from "src/constants";
 
 export const ResultPage = (): React.ReactNode => {
   const { correct, wrong, questions } = useAppSelector(
@@ -20,7 +21,6 @@ export const ResultPage = (): React.ReactNode => {
     navigate("/");
   }
 
-  const PERCENTAGE = 100;
   const totalQuestions = questions.length;
   const answeredQuestions = correct + wrong;
   const score = (correct / totalQuestions) * PERCENTAGE;

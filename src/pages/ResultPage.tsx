@@ -23,7 +23,7 @@ export const ResultPage = (): React.ReactNode => {
 
   const totalQuestions = questions.length;
   const answeredQuestions = correct + wrong;
-  const score = (correct / totalQuestions) * PERCENTAGE;
+  const score = ((correct / totalQuestions) * PERCENTAGE).toFixed(2);
 
   return (
     <div className="container mx-auto p-4">

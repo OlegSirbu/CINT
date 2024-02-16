@@ -39,7 +39,7 @@ export const ResultPage = (): React.ReactNode => {
           Questions answered: <b>{answeredQuestions}</b>
         </p>
         <p>
-          Final Score: <b>{!isNaN(score) && score}%</b>
+          Final Score: <b>{score}%</b>
         </p>
       </div>
       <Button onClick={handleRestartQuiz}>Restart Quiz</Button>

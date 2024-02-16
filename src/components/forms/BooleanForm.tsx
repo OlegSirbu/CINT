@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { Button, ErrorMessage } from "src/components/elements";
 
+// use yup to validate the form
 const validationSchema = yup.object().shape({
   answer: yup.boolean().required("Please select one option"),
 });
